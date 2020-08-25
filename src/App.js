@@ -135,6 +135,9 @@ function App() {
   const [cardSelected, setCardSelected] = useState(1);
   const [color, setColor] = useState("red");
 
+  // Helper for checking which card is selected based on the index of the
+  // card and the value of the cardSelected state
+  // Helps with the styling of the selected card
   function checkCardSelected(card) {
     if (card === cardSelected) {
       return true;
@@ -144,10 +147,10 @@ function App() {
   }
 
   const carModels = [
-    { name: "Neo Speedster" },
-    { name: "Behtony Lagoon" },
-    { name: "Kelz Hatchback" },
-    { name: "Kron Roadster" },
+    { name: "Neo Speedster", price: 15000 },
+    { name: "Behtony Lagoon", price: 4000 },
+    { name: "Kelz Hatchback", price: 20000 },
+    { name: "Kron Roadster", price: 8000 },
   ];
 
   return (
@@ -198,6 +201,7 @@ function App() {
       </OrderPanel>
       <InfoPanel>
         <h1>{carModels[cardSelected - 1].name}</h1>
+        <p>Price:${carModels[cardSelected - 1].price}</p>
         <OrderButton>
           <i className="fas fa-shopping-cart"></i>
           Place Order
